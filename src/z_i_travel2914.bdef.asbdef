@@ -26,7 +26,7 @@ etag master LastChangedAt
   action ( features : instance ) acceptTravel result [1] $self;
   action ( features : instance ) regectTravel result [1] $self;
   action createTravelByTemplate external 'CreateTravelWithCopy' result [1] $self;
-  association _Booking { create; }
+  association _Booking { create ( features : instance ); }
   mapping for ztravel_log_2914
     {
       TravelId      = travel_id;
@@ -63,6 +63,8 @@ etag master LastChangedAt
 
   determination calculateTotalFlightPrice on modify
   { field FlightPrice, CurrencyCode; }
+
+
   mapping for zbooking_2914
     {
       TravelId      = travel_id;
@@ -96,7 +98,9 @@ etag master LastChangedAt
   delete;
 
   //determinatios
-  determination calculateTotalSupplPrice on modify { field Price, CurrencyCode; }
+  determination calculateTotalSupplPrice on modify
+  { field Price, CurrencyCode; }
+
   mapping for zlog_2914 corresponding ; association _travel
     {
     }

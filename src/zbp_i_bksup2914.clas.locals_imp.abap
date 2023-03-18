@@ -8,6 +8,11 @@ ENDCLASS.
 CLASS lhc_Supplement IMPLEMENTATION.
 
 METHOD calculateTotalSupplPrice.
+    IF NOT keys IS INITIAL.
+      zcl_aux_trav_det_2914=>calculate_price( it_travel_id =
+      VALUE #( FOR GROUPS <booking_suppl> OF booking_key IN keys
+             GROUP BY booking_key-TravelId WITHOUT MEMBERS ( <booking_suppl> ) ) ).
+    ENDIF.
 ENDMETHOD.
 
 ENDCLASS.

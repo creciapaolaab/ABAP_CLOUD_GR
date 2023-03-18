@@ -29,7 +29,7 @@ define behavior for Z_C_BKSUP2914 alias SupplementProccesor
 use etag
 {
   use update;
-//  use delete;
+  use delete;
 
   use association _Travel;
   use association _Booking;
