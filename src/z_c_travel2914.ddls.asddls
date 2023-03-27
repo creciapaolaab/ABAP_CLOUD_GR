@@ -20,7 +20,10 @@ as projection on Z_I_TRAVEL2914
     CreatedAt,
     LastChangedBy,
     LastChangedAt,
-    /* Associations */
+      @Semantics.amount.currencyCode : 'CurrencyCode'
+      @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VIRT_ELM_2914'
+    virtual DiscountPrice : /dmo/total_price, 
+    /* Associations */ 
     _Agency,
     _Booking: redirected to composition child Z_C_BOOK2914,
     _Currency,
